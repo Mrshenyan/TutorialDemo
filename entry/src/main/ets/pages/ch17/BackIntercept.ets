@@ -4,7 +4,7 @@ import { promptAction } from '@kit.ArkUI'
 
 @Entry
 @Component
-struct MainPage {
+struct BackInterceptPage {
   @Provide pageStack: NavPathStack = new NavPathStack()
 
   @Builder
@@ -63,7 +63,11 @@ export struct EditPage {
         Button('返回')
           .margin({ top: 12 })
           .onClick(() => {
-            this.pageStack.pop()
+            if (this.hasUnsaved) {
+              promptAction.showToast({ message: '有未保存内容，拦截返回' })
+            }else{
+              this.pageStack.pop()
+            }
           })
       }
       .width('100%')

@@ -9,7 +9,7 @@ interface NavParam {
 
 @Entry
 @Component
-struct MainPage {
+struct BasicNavPage {
   // The stack: all navigation ops go through it. Exposed to children via @Provide.
   @Provide pageStack: NavPathStack = new NavPathStack()
 

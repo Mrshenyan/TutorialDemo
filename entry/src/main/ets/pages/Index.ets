@@ -13,6 +13,76 @@ struct Index {
   // The main project is a list of tutorials; each item jumps to that tutorial's page.
   private chapters: Chapter[] = [
     {
+      title: '第1篇：Hello World 与工程结构',
+      desc: 'Empty Ability + Stage 模型，跑通第一个 Hello World',
+      url: 'pages/ch01/Index'
+    },
+    {
+      title: '第2篇：工程结构速览',
+      desc: 'AppScope / entry / main_pages / module.json5 职责',
+      url: 'pages/ch02/Index'
+    },
+    {
+      title: '第3篇：Stage 模型核心概念',
+      desc: 'AbilityStage / UIAbility / WindowStage / Context 与生命周期',
+      url: 'pages/ch03/Index'
+    },
+    {
+      title: '第4篇：ArkTS 语言与声明式 UI',
+      desc: '声明式描述 UI：组件创建、属性方法、事件方法',
+      url: 'pages/ch04/Index'
+    },
+    {
+      title: '第5篇：自定义组件与基础语法',
+      desc: '@Component / @Entry / 生命周期 / 条件渲染',
+      url: 'pages/ch05/Index'
+    },
+    {
+      title: '第6篇：@Builder 自定义构建函数',
+      desc: '成员 Builder / 全局 Builder / 值传递 vs 引用传递',
+      url: 'pages/ch06/Index'
+    },
+    {
+      title: '第7篇：@BuilderParam 构建参数',
+      desc: '把构建函数当参数传入子组件（插槽 / 尾随闭包）',
+      url: 'pages/ch07/Index'
+    },
+    {
+      title: '第8篇：@Styles 样式复用',
+      desc: '全局 / 组件内样式，组件内优先级更高',
+      url: 'pages/ch08/Index'
+    },
+    {
+      title: '第9篇：stateStyles 动态样式',
+      desc: '按 focused / pressed / normal / disabled 切换样式',
+      url: 'pages/ch09/Index'
+    },
+    {
+      title: '第10篇：@Extend 扩展组件样式',
+      desc: '仅全局、针对具体组件类型、可封装私有属性与事件',
+      url: 'pages/ch10/Index'
+    },
+    {
+      title: '第11篇：状态管理入门',
+      desc: '@State 状态变量变化驱动 UI 刷新；普通变量不会',
+      url: 'pages/ch11/Index'
+    },
+    {
+      title: '第12篇：@State 装饰器',
+      desc: '私有数据源、简单类型直接观察、对象属性亦可',
+      url: 'pages/ch12/Index'
+    },
+    {
+      title: '第13篇：@Prop 与 @Link',
+      desc: 'Prop 父子单向 / Link 父子双向（传 $ 引用）',
+      url: 'pages/ch13/Index'
+    },
+    {
+      title: '第14篇：@Provide 与 @Consume',
+      desc: '跨层级双向同步，按变量名 / 别名自动配对',
+      url: 'pages/ch14/Index'
+    },
+    {
       title: '第15篇：Observed 与 ObjectLink',
       desc: '嵌套对象的深层属性如何驱动 UI 刷新',
       url: 'pages/ch15/Index'
