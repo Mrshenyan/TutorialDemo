@@ -1,0 +1,102 @@
+name: HarmonyOS Build
+
+# 触发方式：
+#   - push 到 main          => 自动拉最新代码打包（"自动编译打包"）
+#   - 网页 Run workflow 按钮 => 手动"新建打包任务"，可选 product / buildMode
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      product:
+        description: 'Product flavor to build'
+        required: true
+        default: 'default'
+      buildMode:
+        description: 'release (APP for store) or debug (HAP for test)'
+        required: true
+        default: 'release'
+
+jobs:
+  build:
+    # 必须用自托管 Windows 构建机（GitHub 托管机没装鸿蒙工具链）
+    # 注册 runner 时打标签 windows、harmonyos，或用 [self-hosted, windows]
+    runs-on: [self-hosted, windows, harmonyos]
+
+    steps:
+      - name: Checkout latest code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          lfs: true
+
+      - name: Setup Node 18 (DevEco 6.1 / API 6.1.1 要求)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Ensure ohpm on PATH (from HarmonyOS SDK)
+        shell: pwsh
+        run: |
+          $ohpm = Get-ChildItem "$env:LOCALAPPDATA\Huawei\Sdk" -Recurse -Filter ohpm.bat -ErrorAction SilentlyContinue | Select-Object -First 1
+          if ($ohpm) {
+            Split-Path $ohpm.FullName | Out-File -Append -FilePath $env:GITHUB_PATH
+            Write-Host "Added ohpm to PATH: $($ohpm.FullName)"
+          } else {
+            Write-Host "ohpm not found under SDK; relying on existing PATH"
+          }
+          ohpm --version
+
+      - name: Install dependencies (ohpm)
+        shell: cmd
+        run: ohpm install
+
+      - name: Hvigor clean
+        shell: cmd
+        run: hvigorw.bat clean --no-daemon
+
+      # 始终产出测试用 HAP
+      - name: Build HAP
+        shell: cmd
+        run: hvigorw.bat assembleHap -p product=${{ github.event.inputs.product || 'default' }} --no-daemon
+
+      # 仅 release（手动触发）时产出上架用 APP；push 触发不构建 APP
+      - name: Build APP
+        if: ${{ github.event.inputs.buildMode == 'release' }}
+        shell: cmd
+        run: hvigorw.bat assembleApp -p product=${{ github.event.inputs.product || 'default' }} --no-daemon
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: harmony-${{ github.event.inputs.product || 'default' }}-${{ github.event.inputs.buildMode || 'push' }}
+          path: |
+            **/build/**/*.hap
+            **/build/**/*.app
+          if-no-files-found: warn
+
+# ── 签名说明（重要）──────────────────────────────────────────────
+# 本工程 build-profile.json5 的 signingConfigs 当前为空，hvigorw 在打包时会因无签名而失败。
+# 两种接法（二选一）：
+#  A) 复用本机构建机的 DevEco 自动签名：
+#     在构建机上用 DevEco 打开本项目并开启「自动签名」一次，hvigorw 即复用本机证书完成签名。
+#  B) 正式证书（推荐用于 release/上架）：
+#     在 build-profile.json5 的 signingConfigs 增加配置，证书密码走仓库 Secrets，
+#     构建机通过 secrets 注入；证书文件放构建机受控目录或用 base64 Secret 落地。
+# 配置示例（填入你的真实路径/密码）：
+#   "signingConfigs": [
+#     {
+#       "name": "ci",
+#       "type": "HarmonyOS",
+#       "material": {
+#         "certpath": "C:/ci-keys/auto_sign_x.pem",
+#         "storePassword": "******",
+#         "keyAlias": "******",
+#         "keyPassword": "******",
+#         "profile": "C:/ci-keys/auto_sign_x.p7b",
+#         "signAlg": "SHA256withECDSA",
+#         "storeFile": "C:/ci-keys/auto_sign_x.p12"
+#       }
+#     }
+#   ]
+#   并将 products[].signingConfig 设为 "ci"。

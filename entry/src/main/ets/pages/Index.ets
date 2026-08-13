@@ -121,6 +121,11 @@ struct Index {
       title: '第22篇：数据持久化 Preferences',
       desc: '轻量级 KV 存储：增删改查与变更订阅',
       url: 'pages/ch22/Index'
+    },
+    {
+      title: '第23篇：性能调优 Profiler（工具+实战）',
+      desc: '6 个可复现场景：Launch/Frame/ArkUI/Time/Allocation/Snapshot',
+      url: 'pages/ch23/Index'
     }
   ]
 

@@ -6,7 +6,7 @@
 @Builder
 function PageMap(name: string) {
   if (name === 'PageOne') {
-    PageOne()
+    TabNavPageOne()
   }
 }
 
@@ -102,7 +102,7 @@ struct MainTabs {
 
 // Shared detail page (any Tab can push it by the same routeName).
 @Component
-export struct PageOne {
+export struct TabNavPageOne {
   @State tabName: string = ''
   @State time: number = 0
   pathStack: NavPathStack = new NavPathStack()

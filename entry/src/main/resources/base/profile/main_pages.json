@@ -69,6 +69,13 @@
     "pages/ch21/QueryAuthDemo",
     "pages/ch22/Index",
     "pages/ch22/PrefsBasic",
-    "pages/ch22/PrefsObserve"
+    "pages/ch22/PrefsObserve",
+    "pages/ch23/Index",
+    "pages/ch23/LaunchDemo",
+    "pages/ch23/FrameDemo",
+    "pages/ch23/ArkUIDemo",
+    "pages/ch23/TimeDemo",
+    "pages/ch23/AllocationDemo",
+    "pages/ch23/SnapshotDemo"
   ]
 }
