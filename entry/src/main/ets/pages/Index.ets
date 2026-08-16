@@ -126,6 +126,11 @@ struct Index {
       title: '第23篇：性能调优 Profiler（工具+实战）',
       desc: '6 个可复现场景：Launch/Frame/ArkUI/Time/Allocation/Snapshot',
       url: 'pages/ch23/Index'
+    },
+    {
+      title: '第24篇：本地数据库 RelationalStore',
+      desc: '关系型数据库：建库建表 / 增删改查 / 谓词 / 事务（记账本实战）',
+      url: 'pages/ch24/Index'
     }
   ]
 
