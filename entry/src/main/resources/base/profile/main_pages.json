@@ -80,6 +80,13 @@
     "pages/ch24/Index",
     "pages/ch24/BillListDemo",
     "pages/ch24/BillEditDemo",
-    "pages/ch24/PredicateDemo"
+    "pages/ch24/PredicateDemo",
+    "pages/ch25/Index",
+    "pages/ch25/AppStorageDemo",
+    "pages/ch25/LocalStorageDemo",
+    "pages/ch25/EnvironmentDemo",
+    "pages/ch26/Index",
+    "pages/ch26/SingleDeviceDemo",
+    "pages/ch26/DistributedDemo"
   ]
 }

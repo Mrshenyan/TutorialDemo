@@ -131,6 +131,16 @@ struct Index {
       title: '第24篇：本地数据库 RelationalStore',
       desc: '关系型数据库：建库建表 / 增删改查 / 谓词 / 事务（记账本实战）',
       url: 'pages/ch24/Index'
+    },
+    {
+      title: '第25篇：应用级状态管理',
+      desc: 'AppStorage 全局 / LocalStorage 页面级 / Environment 设备环境',
+      url: 'pages/ch25/Index'
+    },
+    {
+      title: '第26篇：分布式 KV Store',
+      desc: '单设备 KV 三步走 + 跨设备自动同步（鸿蒙分布式特色）',
+      url: 'pages/ch26/Index'
     }
   ]
 
