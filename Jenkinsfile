@@ -12,7 +12,7 @@ pipeline {
 
     // ===== 手动"新建打包任务"时可选的参数 =====
     parameters {
-        string(name: 'GIT_BRANCH', defaultValue: 'main', description: '要拉取的 Git 分支 (本地工程是 master, 远端默认 main, 按需修改)')
+        string(name: 'GIT_BRANCH', defaultValue: 'master', description: '要拉取的 Git 分支 (主分支是 master)')
         choice(name: 'PRODUCT', choices: ['default'], description: '构建 product flavor (对应 build-profile.json5 的 products)')
         choice(name: 'BUILD_MODE', choices: ['debug', 'release'], description: '构建模式: debug=测试包, release=上架包')
         booleanParam(name: 'BUILD_APP', defaultValue: false, description: '是否额外构建 APP 整包 (release 才有意义, 用于上架)')

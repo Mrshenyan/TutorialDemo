@@ -1,11 +1,11 @@
 name: HarmonyOS Build
 
 # 触发方式：
-#   - push 到 main          => 自动拉最新代码打包（"自动编译打包"）
+#   - push 到 master        => 自动拉最新代码打包（"自动编译打包"）
 #   - 网页 Run workflow 按钮 => 手动"新建打包任务"，可选 product / buildMode
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
     inputs:
       product:
