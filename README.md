@@ -71,19 +71,10 @@ TutorialDemo/
 3. 等待 Sync 完成，连接模拟器或真机（API 22+）后直接 Run
 4. 首页列表即全部章节入口，点击跳转对应 Demo
 
-## CI 自动构建
-
-仓库内置 GitHub Actions 工作流（`.github/workflows/harmony-build.yml`）：
-
-- `push` 到 `main` → 自动拉取最新代码并编译打包
-- 手动 `Run workflow` → 可选 `product` / `buildMode`（`release` 出商店包、`debug` 出测试 HAP）
-
-## License
-
 [MIT](LICENSE)
 
 ---
 
 ![qrcode.jpg](qrcode.jpg)
 
-扫码关注公众号「跟着 cc 一起学鸿蒙开发」，同步获取每篇教程的推文讲解。
+扫码关注公众号**【Cocoser】**同步获取每篇教程的推文讲解。
