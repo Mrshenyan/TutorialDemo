@@ -87,6 +87,9 @@
     "pages/ch25/EnvironmentDemo",
     "pages/ch26/Index",
     "pages/ch26/SingleDeviceDemo",
-    "pages/ch26/DistributedDemo"
+    "pages/ch26/DistributedDemo",
+    "pages/ch27/Index",
+    "pages/ch27/CanvasBasic",
+    "pages/ch27/SignatureDemo"
   ]
 }

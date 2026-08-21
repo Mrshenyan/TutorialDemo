@@ -141,6 +141,11 @@ struct Index {
       title: '第26篇：分布式 KV Store',
       desc: '单设备 KV 三步走 + 跨设备自动同步（鸿蒙分布式特色）',
       url: 'pages/ch26/Index'
+    },
+    {
+      title: '第27篇：手势识别与 Canvas 绘图',
+      desc: 'Canvas 画板 + 手指签名：onTouch / PanGesture + 保存到相册（免权限/权限双方案）',
+      url: 'pages/ch27/Index'
     }
   ]
 

@@ -11,6 +11,14 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+    {
+      "name": "distributed_datasync_reason",
+      "value": "需要分布式数据同步权限，以便在同一华为账号的多台设备间同步收藏数据"
+    },
+    {
+      "name": "write_imagevideo_reason",
+      "value": "需要相册写入权限，以便把签名板绘制的图片保存到系统相册"
     }
   ]
 }
