@@ -146,6 +146,11 @@ struct Index {
       title: '第27篇：手势识别与 Canvas 绘图',
       desc: 'Canvas 画板 + 手指签名：onTouch / PanGesture + 保存到相册（免权限/权限双方案）',
       url: 'pages/ch27/Index'
+    },
+    {
+      title: '第28篇：手势识别的高级用法',
+      desc: '组合手势（顺序/并行/互斥）、手势优先级、缩放手势实战',
+      url: 'pages/ch28/Index'
     }
   ]
 

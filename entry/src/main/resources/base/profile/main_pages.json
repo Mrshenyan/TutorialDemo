@@ -90,6 +90,10 @@
     "pages/ch26/DistributedDemo",
     "pages/ch27/Index",
     "pages/ch27/CanvasBasic",
-    "pages/ch27/SignatureDemo"
+    "pages/ch27/SignatureDemo",
+    "pages/ch28/Index",
+    "pages/ch28/ImageViewer",
+    "pages/ch28/GesturePriorityDemo",
+    "pages/ch28/CombinedModesDemo"
   ]
 }
