@@ -11,7 +11,7 @@ struct TransitionDemo {
       Button(this.show ? '隐藏' : '显示')
         .onClick(() => {
           // The flip MUST be wrapped in animateTo, or transition won't play.
-          animateTo({ duration: 400, curve: Curve.Ease }, () => {
+          this.getUIContext()?.animateTo({ duration: 400, curve: Curve.Ease }, () => {
             this.show = !this.show
           })
         })

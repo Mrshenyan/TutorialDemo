@@ -14,11 +14,11 @@ struct LikeDemo {
         .onClick(() => {
           this.liked = !this.liked
           // Pop up to 1.4, then back to 1 — the classic "bounce" feel.
-          animateTo({ duration: 120, curve: Curve.Linear }, () => {
+          this.getUIContext()?.animateTo({ duration: 120, curve: Curve.Linear }, () => {
             this.scaleVal = 1.4
           })
           setTimeout(() => {
-            animateTo({ duration: 180, curve: Curve.Linear }, () => {
+            this.getUIContext()?.animateTo({ duration: 180, curve: Curve.Linear }, () => {
               this.scaleVal = 1
             })
           }, 120)

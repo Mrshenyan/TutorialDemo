@@ -11,7 +11,7 @@ struct AnimExplicit {
     Column({ space: 20 }) {
       Button('一次性联动')
         .onClick(() => {
-          animateTo({ duration: 600, curve: Curve.Ease }, () => {
+          this.getUIContext()?.animateTo({ duration: 600, curve: Curve.Ease }, () => {
             this.w = this.w === 100 ? 220 : 100
             this.boxOpacity = this.boxOpacity === 1 ? 0.3 : 1
           })

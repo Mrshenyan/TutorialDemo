@@ -94,6 +94,11 @@
     "pages/ch28/Index",
     "pages/ch28/ImageViewer",
     "pages/ch28/GesturePriorityDemo",
-    "pages/ch28/CombinedModesDemo"
+    "pages/ch28/CombinedModesDemo",
+    "pages/ch29/Index",
+    "pages/ch29/GestureAnimDemo",
+    "pages/ch29/PropertyAnimDemo",
+    "pages/ch29/ExplicitAnimDemo",
+    "pages/ch29/AdvancedAnimDemo"
   ]
 }

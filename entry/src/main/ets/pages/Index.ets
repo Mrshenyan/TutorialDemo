@@ -151,6 +151,11 @@ struct Index {
       title: '第28篇：手势识别的高级用法',
       desc: '组合手势（顺序/并行/互斥）、手势优先级、缩放手势实战',
       url: 'pages/ch28/Index'
+    },
+    {
+      title: '第29篇：手势与动画联动',
+      desc: 'animateTo 显式动画 / animation 属性动画 / 手势松手回弹与双击缩放',
+      url: 'pages/ch29/Index'
     }
   ]
 
