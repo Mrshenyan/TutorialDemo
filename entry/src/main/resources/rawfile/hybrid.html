@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Hybrid Bridge</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --card: #ffffff;
+    --text: #1b1b1f;
+    --sub: #6b7280;
+    --brand: #317af7;
+    --border: #e3e5ea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12131a;
+      --card: #1c1e28;
+      --text: #e8eaf0;
+      --sub: #9aa1b1;
+      --brand: #6aa2ff;
+      --border: #2c2f3c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 14px;
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.65 -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    transition: background .25s, color .25s;
+  }
+  h1 { font-size: 17px; margin: 2px 0 12px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+  }
+  .row { display: flex; justify-content: space-between; margin: 4px 0; }
+  .sub { color: var(--sub); font-size: 12px; }
+  button {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    padding: 11px 12px;
+    font-size: 14px;
+    color: #fff;
+    background: var(--brand);
+    border: 0;
+    border-radius: 9px;
+    cursor: pointer;
+  }
+  button.ghost { background: transparent; color: var(--brand); border: 1px solid var(--brand); }
+  button:active { opacity: .75; }
+  ul { margin: 6px 0 0; padding-left: 20px; }
+  li { margin: 4px 0; word-break: break-all; }
+  .empty { color: var(--sub); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<h1>H5 页面 · 双向通信演示</h1>
+
+<div class="card">
+  <div class="row"><span>设备信息</span><b id="device">未获取</b></div>
+  <div class="row"><span>本地上报计数</span><b id="count">0</b></div>
+  <div class="row"><span>当前主题</span><b id="themeName">默认</b></div>
+</div>
+
+<div class="card">
+  <div class="sub">H5 调原生（window.NativeBridge）</div>
+  <button onclick="callToast()">① 让原生弹一个 Toast</button>
+  <button onclick="callDeviceInfo()">② 读取设备信息（JSON 字符串）</button>
+  <button onclick="callReport()">③ 把计数上报给原生</button>
+  <button class="ghost" onclick="callClose()">④ 让原生关闭这个页面</button>
+</div>
+
+<div class="card">
+  <div class="sub">原生调 H5（runJavaScript 注入的条目）</div>
+  <ul id="notes"></ul>
+  <div class="empty" id="emptyTip">还没有数据，点下方原生按钮试试</div>
+</div>
+
+<script>
+  var localCount = 0;
+
+  function bridgeReady() {
+    return typeof window.NativeBridge !== 'undefined';
+  }
+
+  function guard() {
+    if (!bridgeReady()) {
+      document.getElementById('device').textContent = 'Bridge 未注入';
+      return false;
+    }
+    return true;
+  }
+
+  function callToast() {
+    if (!guard()) { return; }
+    window.NativeBridge.showToast('H5 向你问好');
+  }
+
+  function callDeviceInfo() {
+    if (!guard()) { return; }
+    var raw = window.NativeBridge.getDeviceInfo();
+    var info = JSON.parse(raw);
+    document.getElementById('device').textContent = info.deviceType + ' / ' + info.osVersion;
+  }
+
+  function callReport() {
+    if (!guard()) { return; }
+    localCount += 1;
+    document.getElementById('count').textContent = localCount;
+    window.NativeBridge.reportCount(localCount);
+  }
+
+  function callClose() {
+    if (!guard()) { return; }
+    window.NativeBridge.closePage();
+  }
+
+  // ---- Functions invoked by the native side via runJavaScript() ----
+
+  function appendNote(text) {
+    var ul = document.getElementById('notes');
+    var li = document.createElement('li');
+    li.textContent = text;
+    ul.appendChild(li);
+    document.getElementById('emptyTip').style.display = 'none';
+    return ul.children.length;
+  }
+
+  function clearNotes() {
+    var ul = document.getElementById('notes');
+    ul.innerHTML = '';
+    document.getElementById('emptyTip').style.display = 'block';
+    return 0;
+  }
+
+  function setTheme(name) {
+    document.documentElement.style.setProperty('--brand', name === 'dark' ? '#bb86fc' : '#317af7');
+    document.getElementById('themeName').textContent = name;
+    return name;
+  }
+
+  function getPageUserAgent() {
+    return navigator.userAgent;
+  }
+
+  function getNoteCount() {
+    return document.getElementById('notes').children.length;
+  }
+</script>
+
+</body>
+</html>

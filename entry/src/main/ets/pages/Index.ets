@@ -156,6 +156,11 @@ struct Index {
       title: '第29篇：手势与动画联动',
       desc: 'animateTo 显式动画 / animation 属性动画 / 手势松手回弹与双击缩放',
       url: 'pages/ch29/Index'
+    },
+    {
+      title: '第30篇：Web 组件与混合开发',
+      desc: '本地 H5 加载 / 双向通信 javaScriptProxy + runJavaScript / 请求拦截 / 深色模式与 UA',
+      url: 'pages/ch30/Index'
     }
   ]
 

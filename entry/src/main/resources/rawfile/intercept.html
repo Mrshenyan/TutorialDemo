@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Intercept Demo</title>
+<style>
+  :root { --bg:#f4f5f7; --card:#fff; --text:#1b1b1f; --sub:#6b7280; --brand:#0f9d58; --border:#e3e5ea; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#12131a; --card:#1c1e28; --text:#e8eaf0; --sub:#9aa1b1; --brand:#4ade80; --border:#2c2f3c; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:14px; background:var(--bg); color:var(--text); font:14px/1.65 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  h1 { font-size:17px; margin:2px 0 12px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px 14px; margin-bottom:12px; }
+  .sub { color:var(--sub); font-size:12px; margin-bottom:8px; }
+  img { width:72px; height:72px; border-radius:12px; background:#ddd; display:block; }
+  li { margin:4px 0; word-break:break-all; }
+  .err { color:#e24b4a; font-size:12px; word-break:break-all; }
+</style>
+</head>
+<body>
+
+<h1>H5 页面 · 请求拦截演示</h1>
+
+<div class="card">
+  <div class="sub">图片请求 https://demo.local/avatar.png（被原生接管，返回本地资源）</div>
+  <img id="avatar" src="https://demo.local/avatar.png" alt="avatar">
+</div>
+
+<div class="card">
+  <div class="sub">数据请求 https://api.local/notes（被原生接管，返回本地 JSON）</div>
+  <ul id="notes"><li class="sub">加载中…</li></ul>
+</div>
+
+<div class="card">
+  <div class="sub">对照：https://demo.local/unknown.js（原生不拦截 → 请求失败）</div>
+  <div class="err" id="err">加载中…</div>
+</div>
+
+<script>
+  var NOTES_URL = 'https://api.local/notes';
+  var UNKNOWN_URL = 'https://demo.local/unknown.js';
+
+  function render(list) {
+    var ul = document.getElementById('notes');
+    ul.innerHTML = '';
+    for (var i = 0; i < list.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = list[i].title + ' —— ' + list[i].desc;
+      ul.appendChild(li);
+    }
+  }
+
+  fetch(NOTES_URL)
+    .then(function (r) { return r.json(); })
+    .then(function (data) { render(data.items); })
+    .catch(function (e) {
+      document.getElementById('notes').innerHTML = '<li class="err">请求失败：' + e.message + '</li>';
+    });
+
+  fetch(UNKNOWN_URL)
+    .then(function (r) { document.getElementById('err').textContent = '竟然请求成功了'; })
+    .catch(function (e) { document.getElementById('err').textContent = '预期内的失败：' + e.message; });
+</script>
+
+</body>
+</html>

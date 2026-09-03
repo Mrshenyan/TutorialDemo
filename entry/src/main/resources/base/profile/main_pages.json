@@ -99,6 +99,11 @@
     "pages/ch29/GestureAnimDemo",
     "pages/ch29/PropertyAnimDemo",
     "pages/ch29/ExplicitAnimDemo",
-    "pages/ch29/AdvancedAnimDemo"
+    "pages/ch29/AdvancedAnimDemo",
+    "pages/ch30/Index",
+    "pages/ch30/BasicWebDemo",
+    "pages/ch30/BridgeDemo",
+    "pages/ch30/InterceptDemo",
+    "pages/ch30/WebConfigDemo"
   ]
 }

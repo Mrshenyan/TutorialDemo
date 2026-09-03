@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Basic Local H5</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --card: #ffffff;
+    --text: #1b1b1f;
+    --sub: #6b7280;
+    --brand: #317af7;
+    --border: #e3e5ea;
+  }
+  * { box-sizing: border-box; }
+  html { height: 100%; }
+  body {
+    margin: 0;
+    padding: 14px;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100%;
+    font: 14px/1.65 -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    transition: background .25s, color .25s;
+  }
+  h1 { font-size: 17px; margin: 2px 0 12px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+  }
+  .row { display: flex; justify-content: space-between; margin: 4px 0; word-break: break-all; }
+  .sub { color: var(--sub); font-size: 12px; }
+  b { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>本地 H5 · 加载与工程配置</h1>
+
+<div class="card">
+  <div class="row"><span>加载方式</span><b>$rawfile</b></div>
+  <div class="row"><span>是否需要网络</span><b>否</b></div>
+  <div class="row"><span>当前主题</span><b id="theme">跟随系统</b></div>
+  <div class="row"><span>页面 UA</span><b id="ua">点击原生「读 H5 里的 UA」</b></div>
+</div>
+
+<div class="card">
+  <p class="sub">本页只演示「原生 Web 组件加载本地 H5」与工程配置（深色模式、UA、缩放、缓存），<b>不含原生桥接</b>。</p>
+  <p class="sub">想体验 H5 与原生互相调用（Toast / 设备信息 / 插入数据），请打开 <b>② 双向通信</b> demo。</p>
+</div>
+
+<script>
+  function syncTheme() {
+    var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.getElementById('theme').textContent = dark ? '深色（跟随系统）' : '浅色（跟随系统）';
+  }
+  syncTheme();
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncTheme);
+  }
+
+  // Called by demo ① / ④ via controller.runJavaScript('getPageUserAgent()').
+  // Fills its own UA row AND returns the string so the native side can log it.
+  function getPageUserAgent() {
+    var ua = navigator.userAgent;
+    var el = document.getElementById('ua');
+    if (el) el.textContent = ua;
+    return ua;
+  }
+</script>
+
+</body>
+</html>
