@@ -104,6 +104,10 @@
     "pages/ch30/BasicWebDemo",
     "pages/ch30/BridgeDemo",
     "pages/ch30/InterceptDemo",
-    "pages/ch30/WebConfigDemo"
+    "pages/ch30/WebConfigDemo",
+    "pages/ch31/Index",
+    "pages/ch31/VideoPlayerPage",
+    "pages/ch31/AVPlayerPage",
+    "pages/ch31/AudioPlayerPage"
   ]
 }

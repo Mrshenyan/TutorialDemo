@@ -161,6 +161,11 @@ struct Index {
       title: '第30篇：Web 组件与混合开发',
       desc: '本地 H5 加载 / 双向通信 javaScriptProxy + runJavaScript / 请求拦截 / 深色模式与 UA',
       url: 'pages/ch30/Index'
+    },
+    {
+      title: '第31篇：AVPlayer 多媒体播放',
+      desc: '声明式 Video 组件 / AVPlayer 状态机 / XComponent 渲染视频 / 纯音频 / 进度·音量·倍速',
+      url: 'pages/ch31/Index'
     }
   ]
 
