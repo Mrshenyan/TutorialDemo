@@ -166,6 +166,11 @@ struct Index {
       title: '第31篇：AVPlayer 多媒体播放',
       desc: '声明式 Video 组件 / AVPlayer 状态机 / XComponent 渲染视频 / 纯音频 / 进度·音量·倍速',
       url: 'pages/ch31/Index'
+    },
+    {
+      title: '第32篇：AVRecorder 音视频录制（从基础到进阶）',
+      desc: '麦克风录音+回放 / 相机录像 / 参数精调 / 实时麦克风音量条 / 录制后转码——AVRecorder 全家桶',
+      url: 'pages/ch32/Index'
     }
   ]
 

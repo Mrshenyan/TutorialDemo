@@ -108,6 +108,12 @@
     "pages/ch31/Index",
     "pages/ch31/VideoPlayerPage",
     "pages/ch31/AVPlayerPage",
-    "pages/ch31/AudioPlayerPage"
+    "pages/ch31/AudioPlayerPage",
+    "pages/ch32/Index",
+    "pages/ch32/AudioRecordPage",
+    "pages/ch32/VideoRecordPage",
+    "pages/ch32/AudioTunerPage",
+    "pages/ch32/VolumeMeterPage",
+    "pages/ch32/TranscodePage"
   ]
 }
