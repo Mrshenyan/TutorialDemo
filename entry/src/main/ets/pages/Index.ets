@@ -171,6 +171,11 @@ struct Index {
       title: '第32篇：AVRecorder 音视频录制（从基础到进阶）',
       desc: '麦克风录音+回放 / 相机录像 / 参数精调 / 实时麦克风音量条 / 录制后转码——AVRecorder 全家桶',
       url: 'pages/ch32/Index'
+    },
+    {
+      title: '第33篇：媒体闭环三连击（媒体库·权限·状态管理）',
+      desc: '相册挑选/截图存库 + user_grant 权限全链路 + @Watch/PersistentStorage/Environment 状态收尾——把 ch31/32 产物真正落地',
+      url: 'pages/ch33/Index'
     }
   ]
 

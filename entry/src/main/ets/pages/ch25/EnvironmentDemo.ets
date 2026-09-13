@@ -1,31 +1,28 @@
 import { router } from '@kit.ArkUI';
 
 // Chapter 25 §4: Environment exposes READ-ONLY system state.
-// Common keys: 'languageCode', 'colorMode', 'fontSizeScale', 'fontWeightScale', 'deviceType'.
-// App side can only READ them. Environment.EnvProp is for the initial link only.
-//
-// IMPORTANT: once linked, 'colorMode' is bound to the DEVICE and is read-only.
-// Writing to it (via EnvProp again OR AppStorage.Set) is ignored — the device value wins.
+// envProp('colorMode'/'fontScale') is linked ONCE at EntryAbility.onWindowStageCreate
+// (see entryability/EntryAbility.ets) — the only reliable place (runs before any page and
+// the device config is ready there). The app can only READ them.
+// Once linked, 'colorMode' is bound to the DEVICE and is read-only.
+// Writing to it (via AppStorage.Set) is ignored — the device value wins.
 // So "simulate dark/light" must use a SEPARATE app-owned key (app.darkMode),
 // not the read-only Environment colorMode.
-//
 // colorMode mapping (verified from this SDK's ConfigurationConstant.ColorMode):
 //   0 = dark (深色), 1 = light (浅色). Flip if your device shows the opposite.
 
 @Entry
 @Component
 struct EnvironmentDemo {
-  // --- read-only system state (linked via EnvProp in aboutToAppear) ---
+  // --- read-only system state (linked at EntryAbility startup) ---
   @StorageProp('colorMode') sysColorMode: number = 1;
-  @StorageProp('fontSizeScale') fontSizeScale: number = 1.0;
+  @StorageProp('fontScale') fontSizeScale: number = 1.0;
 
   // --- app-owned, WRITABLE theme switch (NOT environment-linked) ---
   @StorageProp('app.darkMode') darkMode: boolean = false;
 
   aboutToAppear(): void {
-    // Link system environment into AppStorage so @StorageProp can read it.
-    Environment.EnvProp('colorMode', 1); // default light
-    Environment.EnvProp('fontSizeScale', 1.0);
+    // Environment keys are already linked at module top-level.
     // Create the app-owned switch key (writable by AppStorage.Set).
     AppStorage.SetOrCreate('app.darkMode', false);
   }

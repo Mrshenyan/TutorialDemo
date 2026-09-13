@@ -114,6 +114,14 @@
     "pages/ch32/VideoRecordPage",
     "pages/ch32/AudioTunerPage",
     "pages/ch32/VolumeMeterPage",
-    "pages/ch32/TranscodePage"
+    "pages/ch32/TranscodePage",
+    "pages/ch33/Index",
+    "pages/ch33/PickerPage",
+    "pages/ch33/SaveSnapshotPage",
+    "pages/ch33/PermRequestPage",
+    "pages/ch33/PermMultiPage",
+    "pages/ch33/WatchDemo",
+    "pages/ch33/PersistDemo",
+    "pages/ch33/EnvDemo"
   ]
 }
