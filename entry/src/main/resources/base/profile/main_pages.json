@@ -122,6 +122,10 @@
     "pages/ch33/PermMultiPage",
     "pages/ch33/WatchDemo",
     "pages/ch33/PersistDemo",
-    "pages/ch33/EnvDemo"
+    "pages/ch33/EnvDemo",
+    "pages/ch34/Index",
+    "pages/ch34/LongTaskDemo",
+    "pages/ch34/DelayTaskDemo",
+    "pages/ch34/ReminderDemo"
   ]
 }
