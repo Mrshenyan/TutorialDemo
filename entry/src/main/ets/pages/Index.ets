@@ -181,6 +181,21 @@ struct Index {
       title: '第34篇：后台任务与代理提醒',
       desc: '长时任务保活 / 延时任务省电 / 代理提醒免后台——三种后台能力一次讲清',
       url: 'pages/ch34/Index'
+    },
+    {
+      title: '第35篇：后台音频播放与后台下载',
+      desc: '长时任务 + AVSession 锁屏控制 + 音频焦点打断；后台下载完成发代理提醒',
+      url: 'pages/ch35/Index'
+    },
+    {
+      title: '第36篇：网络 RCP 进阶',
+      desc: 'Session 复用 / 拦截器链（鉴权·日志·重试）/ 超时·断点续传·证书锁定',
+      url: 'pages/ch36/Index'
+    },
+    {
+      title: '第37篇：并发编程 TaskPool/Worker 与文件批量处理',
+      desc: '主线程不能卡 → TaskPool 跑一次性任务；Worker 长驻通信；以沙箱文件批量校验（CPU 密集）为实战',
+      url: 'pages/ch37/Index'
     }
   ]
 

@@ -126,6 +126,17 @@
     "pages/ch34/Index",
     "pages/ch34/LongTaskDemo",
     "pages/ch34/DelayTaskDemo",
-    "pages/ch34/ReminderDemo"
+    "pages/ch34/ReminderDemo",
+    "pages/ch35/Index",
+    "pages/ch35/AudioPlaybackDemo",
+    "pages/ch35/DownloadReminderDemo",
+    "pages/ch36/Index",
+    "pages/ch36/Ch36RcpBasicDemo",
+    "pages/ch36/Ch36RcpInterceptorDemo",
+    "pages/ch36/Ch36RcpAdvancedDemo",
+    "pages/ch37/Index",
+    "pages/ch37/Ch37TaskPoolDemo",
+    "pages/ch37/Ch37FileBatchDemo",
+    "pages/ch37/Ch37WorkerDemo"
   ]
 }
