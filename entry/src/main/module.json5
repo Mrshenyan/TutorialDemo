@@ -86,6 +86,17 @@
             ]
           }
         ]
+      },
+      {
+        "name": "Ch38TargetAbility",
+        "srcEntry": "./ets/ch38targetability/Ch38TargetAbility.ets",
+        "description": "Ch38 target ability for Want demo",
+        "icon": "$media:layered_image",
+        "label": "Ch38TargetAbility",
+        "startWindowIcon": "$media:startIcon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "launchType": "standard"
       }
     ],
     "extensionAbilities": [

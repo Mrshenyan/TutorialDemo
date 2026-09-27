@@ -196,6 +196,11 @@ struct Index {
       title: '第37篇：并发编程 TaskPool/Worker 与文件批量处理',
       desc: '主线程不能卡 → TaskPool 跑一次性任务；Worker 长驻通信；以沙箱文件批量校验（CPU 密集）为实战',
       url: 'pages/ch37/Index'
+    },
+    {
+      title: '第38篇：应用间跳转 Want',
+      desc: '显式精确点名 / 隐式交给系统匹配；Want 带参 + startAbilityForResult 回执——打通 Ability 级跳转',
+      url: 'pages/ch38/Index'
     }
   ]
 

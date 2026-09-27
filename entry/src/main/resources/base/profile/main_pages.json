@@ -137,6 +137,11 @@
     "pages/ch37/Index",
     "pages/ch37/Ch37TaskPoolDemo",
     "pages/ch37/Ch37FileBatchDemo",
-    "pages/ch37/Ch37WorkerDemo"
+    "pages/ch37/Ch37WorkerDemo",
+    "pages/ch38/Index",
+    "pages/ch38/Ch38ImplicitSystem",
+    "pages/ch38/Ch38ExplicitSameApp",
+    "pages/ch38/Ch38ResultBack",
+    "pages/ch38/Ch38TargetPage"
   ]
 }
