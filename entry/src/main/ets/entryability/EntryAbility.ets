@@ -6,7 +6,12 @@ import resourceManager from '@ohos.resourceManager';
 const DOMAIN = 0x0000;
 
 export default class EntryAbility extends UIAbility {
+  // ch39: the Want that launched/relaunched this ability (a notification's WantAgent sets `notifyTarget`).
+  public launchWant: Want = new Want();
+  private mainWindowStage?: window.WindowStage;
+
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    this.launchWant = want;
     try {
       this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
     } catch (err) {
@@ -55,13 +60,36 @@ export default class EntryAbility extends UIAbility {
     Environment.envProp('colorMode', 1);   // default light if system value unavailable
     Environment.envProp('fontScale', 1.0); // system font scale (e.g. 1.0 / 1.5)
 
-    windowStage.loadContent('pages/Index', (err) => {
+    // ③ ch39: deep-link from a notification tap. If the launching Want carries `notifyTarget`
+    //    (set by a notification's WantAgent), load that page instead of the home Index.
+    this.mainWindowStage = windowStage;
+    const target: string | undefined = this.resolveNotifyTarget();
+    windowStage.loadContent(target ?? 'pages/Index', (err) => {
       if (err.code) {
         hilog.error(DOMAIN, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
         return;
       }
       hilog.info(DOMAIN, 'testTag', '%{public}s', 'Succeeded in loading the content.');
     });
+  }
+
+  // ch39: read the `notifyTarget` page path from the launching Want, allowing only known pages.
+  private resolveNotifyTarget(): string | undefined {
+    const raw: Object | undefined = this.launchWant?.parameters?.['notifyTarget'];
+    const allowed: string[] = ['pages/ch39/Ch39NotifyTarget'];
+    if (typeof raw === 'string' && allowed.includes(raw)) {
+      return raw;
+    }
+    return undefined;
+  }
+
+  // ch39: when the app is already running and the user taps a notification, re-route to the target.
+  onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    this.launchWant = want;
+    const target: string | undefined = this.resolveNotifyTarget();
+    if (target && this.mainWindowStage) {
+      this.mainWindowStage.loadContent(target);
+    }
   }
 
   // ③ Live system-configuration callback — the AUTHORITATIVE way to follow dark-mode / font-scale

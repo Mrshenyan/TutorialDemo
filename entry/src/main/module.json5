@@ -90,9 +90,9 @@
       {
         "name": "Ch38TargetAbility",
         "srcEntry": "./ets/ch38targetability/Ch38TargetAbility.ets",
-        "description": "Ch38 target ability for Want demo",
+        "description": "$string:Ch38TargetAbility_desc",
         "icon": "$media:layered_image",
-        "label": "Ch38TargetAbility",
+        "label": "$string:Ch38TargetAbility_label",
         "startWindowIcon": "$media:startIcon",
         "startWindowBackground": "$color:start_window_background",
         "exported": true,

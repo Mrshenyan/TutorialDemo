@@ -201,6 +201,11 @@ struct Index {
       title: '第38篇：应用间跳转 Want',
       desc: '显式精确点名 / 隐式交给系统匹配；Want 带参 + startAbilityForResult 回执——打通 Ability 级跳转',
       url: 'pages/ch38/Index'
+    },
+    {
+      title: '第39篇：系统通知 Notification',
+      desc: '基础通知 / 进度通知（下载模板）/ WantAgent 点击意图——后台干完活主动"喊"用户，点通知跳回页面',
+      url: 'pages/ch39/Index'
     }
   ]
 

@@ -13,6 +13,14 @@
       "value": "$string:app_name"
     },
     {
+      "name": "Ch38TargetAbility_label",
+      "value": "TutorialDemo(ch38)"
+    },
+    {
+      "name": "Ch38TargetAbility_desc",
+      "value": "应用间跳转 Want 演示用目标 Ability"
+    },
+    {
       "name": "distributed_datasync_reason",
       "value": "需要分布式数据同步权限，以便在同一华为账号的多台设备间同步收藏数据"
     },

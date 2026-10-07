@@ -142,6 +142,11 @@
     "pages/ch38/Ch38ImplicitSystem",
     "pages/ch38/Ch38ExplicitSameApp",
     "pages/ch38/Ch38ResultBack",
-    "pages/ch38/Ch38TargetPage"
+    "pages/ch38/Ch38TargetPage",
+    "pages/ch39/Index",
+    "pages/ch39/Ch39BasicNotify",
+    "pages/ch39/Ch39ProgressNotify",
+    "pages/ch39/Ch39WantAgent",
+    "pages/ch39/Ch39NotifyTarget"
   ]
 }
