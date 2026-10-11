@@ -51,7 +51,8 @@ struct Ch35AudioPlaybackDemo {
       state: state,
       position: { elapsedTime: 0, updateTime: 0 }
     }).catch((err: BusinessError) => {
-      console.error(`setAVPlaybackState failed: ${err.code} ${err.message}`)
+      const e: BusinessError = err as BusinessError;
+      console.error(`setAVPlaybackState failed: ${e.code} ${e.message}`)
     })
   }
 

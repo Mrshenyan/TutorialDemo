@@ -25,7 +25,7 @@ struct Ch38ResultBack {
         ? (data.want.parameters['reply'] as string)
         : '(无回传)'
       this.result = `resultCode=${data.resultCode}，回传：${reply}`
-    }).catch((e: Object) => {
+    }).catch((e: BizErr) => {
       const be: BizErr = e as BizErr
       this.result = `失败[${be.code}]：${be.message}`
     })

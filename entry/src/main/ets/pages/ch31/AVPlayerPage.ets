@@ -44,7 +44,8 @@ struct Ch31AVPlayer {
       this.registerEvents(player);
       player.url = this.videoUrl;   // → state 'initialized'
     }).catch((error: BusinessError) => {
-      console.error('createAVPlayer failed: ' + error.message);
+      const e: BusinessError = error as BusinessError;
+      console.error('createAVPlayer failed: ' + e.message);
     });
   }
 

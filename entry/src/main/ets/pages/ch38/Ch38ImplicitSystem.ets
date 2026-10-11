@@ -23,7 +23,7 @@ struct Ch38ImplicitSystem {
     }
     this.ctx().startAbility(want).then(() => {
       this.log = '已拉起浏览器打开网页'
-    }).catch((e: Object) => {
+    }).catch((e: BizErr) => {
       const be: BizErr = e as BizErr
       this.log = `失败[${be.code}]：${be.message}`
     })
@@ -37,7 +37,7 @@ struct Ch38ImplicitSystem {
     }
     this.ctx().startAbility(want).then(() => {
       this.log = '已拉起拨号盘'
-    }).catch((e: Object) => {
+    }).catch((e: BizErr) => {
       const be: BizErr = e as BizErr
       this.log = `失败[${be.code}]：${be.message}`
     })
@@ -50,7 +50,7 @@ struct Ch38ImplicitSystem {
     }
     this.ctx().startAbility(want).then(() => {
       this.log = '已拉起系统设置'
-    }).catch((e: Object) => {
+    }).catch((e: BizErr) => {
       const be: BizErr = e as BizErr
       this.log = `失败[${be.code}]：${be.message}`
     })

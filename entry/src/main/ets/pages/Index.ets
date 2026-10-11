@@ -206,6 +206,11 @@ struct Index {
       title: '第39篇：系统通知 Notification',
       desc: '基础通知 / 进度通知（下载模板）/ WantAgent 点击意图——后台干完活主动"喊"用户，点通知跳回页面',
       url: 'pages/ch39/Index'
+    },
+    {
+      title: '第40篇：传感器 Sensor Kit（硬件互动开篇）',
+      desc: '加速度计小球/摇一摇 + 陀螺仪角速度 + 环境光 lux——订阅硬件传感器实时数据',
+      url: 'pages/ch40/Index'
     }
   ]
 

@@ -35,6 +35,14 @@
     {
       "name": "camera_reason",
       "value": "需要相机权限，以便预览并录制视频"
+    },
+    {
+      "name": "accelerometer_reason",
+      "value": "需要加速度计权限，以便通过重力感应实现小球滚动与摇一摇交互"
+    },
+    {
+      "name": "gyroscope_reason",
+      "value": "需要陀螺仪权限，以便获取设备旋转角速度"
     }
   ]
 }

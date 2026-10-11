@@ -22,7 +22,7 @@ struct Ch38ExplicitSameApp {
     }
     ctx.startAbility(want).then(() => {
       this.log = '已显式启动目标 Ability'
-    }).catch((e: Object) => {
+    }).catch((e: BizErr) => {
       const be: BizErr = e as BizErr
       this.log = `失败[${be.code}]：${be.message}`
     })

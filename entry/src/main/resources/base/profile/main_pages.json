@@ -147,6 +147,10 @@
     "pages/ch39/Ch39BasicNotify",
     "pages/ch39/Ch39ProgressNotify",
     "pages/ch39/Ch39WantAgent",
-    "pages/ch39/Ch39NotifyTarget"
+    "pages/ch39/Ch39NotifyTarget",
+    "pages/ch40/Index",
+    "pages/ch40/Ch40Accelerometer",
+    "pages/ch40/Ch40Gyroscope",
+    "pages/ch40/Ch40Light"
   ]
 }

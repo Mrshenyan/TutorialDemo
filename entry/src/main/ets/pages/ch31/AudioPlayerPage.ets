@@ -28,7 +28,8 @@ struct Ch31AudioPlayer {
       this.registerEvents(player);
       player.url = this.audioUrl;
     }).catch((error: BusinessError) => {
-      console.error('createAVPlayer failed: ' + error.message);
+      const e: BusinessError = error as BusinessError;
+      console.error('createAVPlayer failed: ' + e.message);
     });
   }
 
