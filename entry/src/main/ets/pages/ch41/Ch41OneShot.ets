@@ -15,7 +15,7 @@ struct Ch41OneShot {
   @State altitude: number = 0
   @State accuracy: number = 0
   @State speed: number = 0
-  @State direction: number = 0
+  @State myDirection: number = 0
   @State source: string = '-'
   @State status: string = '点「开始定位」按钮获取当前位置'
   @State loading: boolean = false
@@ -38,7 +38,7 @@ struct Ch41OneShot {
         this.altitude = loc.altitude
         this.accuracy = loc.accuracy
         this.speed = loc.speed
-        this.direction = loc.direction
+        this.myDirection = loc.direction
         this.source = this.sourceName(loc.sourceType)
         this.loading = false
         this.status = '定位成功'
@@ -143,7 +143,7 @@ struct Ch41OneShot {
         Row() {
           Column({ space: 4 }) {
             Text('方向 direction(°)').fontSize(12).fontColor('#888')
-            Text(this.direction.toFixed(1)).fontSize(15).fontFamily('monospace')
+            Text(this.myDirection.toFixed(1)).fontSize(15).fontFamily('monospace')
           }
           .layoutWeight(1)
 
