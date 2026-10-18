@@ -151,6 +151,16 @@
     "pages/ch40/Index",
     "pages/ch40/Ch40Accelerometer",
     "pages/ch40/Ch40Gyroscope",
-    "pages/ch40/Ch40Light"
+    "pages/ch40/Ch40Light",
+    "pages/ch41/Index",
+    "pages/ch41/Ch41OneShot",
+    "pages/ch41/Ch41Continuous",
+    "pages/ch41/Ch41ReverseGeo",
+    "pages/ch41/Ch41Geofence",
+    "pages/ch42/Index",
+    "pages/ch42/Ch42ScanBasic",
+    "pages/ch42/Ch42ScanTypes",
+    "pages/ch42/Ch42BarcodeGen",
+    "pages/ch42/Ch42CameraPicker"
   ]
 }

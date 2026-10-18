@@ -43,6 +43,10 @@
     {
       "name": "gyroscope_reason",
       "value": "需要陀螺仪权限，以便获取设备旋转角速度"
+    },
+    {
+      "name": "approximate_location_reason",
+      "value": "需要位置权限，以便获取坐标、查询地址并在进出围栏时提醒"
     }
   ]
 }

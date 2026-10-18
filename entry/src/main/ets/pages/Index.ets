@@ -211,6 +211,16 @@ struct Index {
       title: '第40篇：传感器 Sensor Kit（硬件互动开篇）',
       desc: '加速度计小球/摇一摇 + 陀螺仪角速度 + 环境光 lux——订阅硬件传感器实时数据',
       url: 'pages/ch40/Index'
+    },
+    {
+      title: '第41篇：定位 Location Kit',
+      desc: '一次性定位 + 连续追踪画轨迹 + 逆地理编码查地址 + 地理围栏进出提醒',
+      url: 'pages/ch41/Index'
+    },
+    {
+      title: '第42篇：扫码与相机',
+      desc: '系统扫码/码制与相册识码/生成二维码 + 零权限系统相机拍照',
+      url: 'pages/ch42/Index'
     }
   ]
 
