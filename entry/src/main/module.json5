@@ -141,6 +141,21 @@
             "resource": "$profile:backup_config"
           }
         ],
+      },
+      {
+        "name": "Ch43FormAbility",
+        "srcEntry": "./ets/ch43formability/Ch43FormAbility.ets",
+        "description": "$string:Ch43FormAbility_desc",
+        "icon": "$media:layered_image",
+        "label": "$string:Ch43FormAbility_label",
+        "type": "form",
+        "exported": true,
+        "metadata": [
+          {
+            "name": "ohos.extension.form",
+            "resource": "$profile:form_config_ch43"
+          }
+        ]
       }
     ]
   }

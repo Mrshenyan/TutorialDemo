@@ -161,6 +161,13 @@
     "pages/ch42/Ch42ScanBasic",
     "pages/ch42/Ch42ScanTypes",
     "pages/ch42/Ch42BarcodeGen",
-    "pages/ch42/Ch42CameraPicker"
+    "pages/ch42/Ch42CameraPicker",
+    "pages/ch43/Index",
+    "pages/ch43/Ch43Control",
+    "pages/ch43/Ch43Lifecycle",
+    "pages/ch44/Index",
+    "pages/ch44/Ch44ShareText",
+    "pages/ch44/Ch44ShareImage",
+    "pages/ch44/Ch44Clipboard"
   ]
 }

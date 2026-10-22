@@ -47,6 +47,22 @@
     {
       "name": "approximate_location_reason",
       "value": "需要位置权限，以便获取坐标、查询地址并在进出围栏时提醒"
+    },
+    {
+      "name": "Ch43FormAbility_label",
+      "value": "今日打卡卡片"
+    },
+    {
+      "name": "Ch43FormAbility_desc",
+      "value": "桌面打卡卡片的数据提供方"
+    },
+    {
+      "name": "ch43_card_display_name",
+      "value": "今日打卡"
+    },
+    {
+      "name": "ch43_card_desc",
+      "value": "在桌面直接完成一次打卡，数据与 App 同步"
     }
   ]
 }

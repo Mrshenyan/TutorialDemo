@@ -221,6 +221,16 @@ struct Index {
       title: '第42篇：扫码与相机',
       desc: '系统扫码/码制与相册识码/生成二维码 + 零权限系统相机拍照',
       url: 'pages/ch42/Index'
+    },
+    {
+      title: '第43篇：服务卡片（桌面小组件）',
+      desc: 'FormExtensionAbility 生命周期 + 桌面卡片交互 + 三种刷新机制',
+      url: 'pages/ch43/Index'
+    },
+    {
+      title: '第44篇：系统分享与剪贴板',
+      desc: 'ShareKit 分享文本/链接/图片 + pasteboard 读写与零权限复制',
+      url: 'pages/ch44/Index'
     }
   ]
 
