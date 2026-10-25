@@ -44,7 +44,7 @@ struct Ch44Index {
           .backgroundColor('#00838F')
           .onClick(() => router.pushUrl({ url: 'pages/ch44/Ch44ShareImage' } as router.RouterOptions))
 
-        Text('③ 剪贴板读写 + 零权限复制')
+        Text('③ 剪贴板写入 + PasteButton 零权限读取')
           .fontSize(15)
           .fontWeight(FontWeight.Medium)
           .fontColor('#317af7')
