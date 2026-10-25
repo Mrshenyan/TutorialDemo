@@ -231,6 +231,16 @@ struct Index {
       title: '第44篇：系统分享与剪贴板',
       desc: 'ShareKit 分享文本/链接/图片 + pasteboard 读写与零权限复制',
       url: 'pages/ch44/Index'
+    },
+    {
+      title: '第45篇：日志与线上问题定位',
+      desc: 'hilog 分级打印与脱敏 + 私有目录落盘 + hiAppEvent 打点与系统故障订阅',
+      url: 'pages/ch45/Index'
+    },
+    {
+      title: '第46篇：HUKS 密钥管理',
+      desc: '密钥生成/使用/删除全走安全硬件 + AES-256-CBC 加解密实操',
+      url: 'pages/ch46/Index'
     }
   ]
 

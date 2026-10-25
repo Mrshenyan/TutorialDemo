@@ -128,8 +128,6 @@ struct Ch44Clipboard {
           // mandatory and non-customizable. It must stay visible, or the
           // temporary authorization fails.
           PasteButton()
-            .layoutWeight(1)
-            .margin({ left: 8 })
             .onClick((event: ClickEvent, result: PasteButtonOnClickResult) => {
               this.onPaste(event, result)
             })

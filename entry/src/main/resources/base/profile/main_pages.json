@@ -168,6 +168,13 @@
     "pages/ch44/Index",
     "pages/ch44/Ch44ShareText",
     "pages/ch44/Ch44ShareImage",
-    "pages/ch44/Ch44Clipboard"
+    "pages/ch44/Ch44Clipboard",
+    "pages/ch45/Index",
+    "pages/ch45/Ch45Hilog",
+    "pages/ch45/Ch45FileLog",
+    "pages/ch45/Ch45AppEvent",
+    "pages/ch46/Index",
+    "pages/ch46/Ch46KeyManage",
+    "pages/ch46/Ch46Crypto"
   ]
 }
