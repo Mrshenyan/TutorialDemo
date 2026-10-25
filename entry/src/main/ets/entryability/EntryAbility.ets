@@ -6,8 +6,11 @@ import resourceManager from '@ohos.resourceManager';
 const DOMAIN = 0x0000;
 
 export default class EntryAbility extends UIAbility {
-  // ch39: the Want that launched/relaunched this ability (a notification's WantAgent sets `notifyTarget`).
-  public launchWant: Want = new Want();
+  // ch39: the launching Want comes from the INHERITED UIAbility.launchWant (populated by the
+  // framework). NEVER redeclare it with a `new Want()` field initializer: the native Want class
+  // (@ohos:app.ability.Want) is not constructible on every system image (the local emulator
+  // 6.1.0.126 fails to load it), and a throwing field initializer kills the whole Ability at
+  // construction -> white screen + "starting ability time out".
   private mainWindowStage?: window.WindowStage;
 
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
