@@ -12,6 +12,11 @@ import { common } from '@kit.AbilityKit'
  *   2. The widget lives outside the UIAbility process, so it cannot share
  *      in-memory state with the main app. preferences (a file) is the channel;
  *      flushSync() commits it, otherwise the other side keeps reading cache.
+ *   3. A preferences file maps to ONE cached in-memory instance per process,
+ *      and that instance never re-reads the file. So every read/write goes
+ *      through openFresh(): removePreferencesFromCacheSync() first, then
+ *      getPreferencesSync() - otherwise the app serves startup-time values
+ *      forever and desktop check-ins never show up.
  */
 
 export const CH43_STORE_NAME: string = 'ch43_card_store'
@@ -37,11 +42,28 @@ export class Ch43CardStore {
     return opts
   }
 
+  // A preferences file maps to exactly ONE in-memory instance per process, and
+  // that instance eagerly loads the whole file into memory. The widget runs in
+  // its own process, so after it flushSync()s, this process's instance still
+  // serves the stale values it loaded at startup - that is why "check-in on the
+  // desktop, reopen the app, nothing changed" happens even though onPageShow
+  // re-reads. Kick the instance out of the cache first, then re-open: the new
+  // instance re-reads from disk. Local variable only, no dangling references.
+  private static openFresh(ctx: common.Context): preferences.Preferences {
+    try {
+      preferences.removePreferencesFromCacheSync(ctx, Ch43CardStore.options())
+    } catch (e) {
+      // Nothing cached yet (first read in this process) - nothing to remove.
+      console.info(`[ch43] cache empty, skip remove: ${JSON.stringify(e)}`)
+    }
+    return preferences.getPreferencesSync(ctx, Ch43CardStore.options())
+  }
+
   // Read the whole snapshot. Safe to call from both the app and the widget.
   static load(ctx: common.Context): Ch43Snapshot {
     let snap: Ch43Snapshot = new Ch43Snapshot()
     try {
-      let store: preferences.Preferences = preferences.getPreferencesSync(ctx, Ch43CardStore.options())
+      let store: preferences.Preferences = Ch43CardStore.openFresh(ctx)
       snap.done = store.getSync(CH43_KEY_DONE, 0) as number
       snap.target = store.getSync(CH43_KEY_TARGET, 5) as number
       snap.streak = store.getSync(CH43_KEY_STREAK, 0) as number
@@ -53,10 +75,11 @@ export class Ch43CardStore {
   }
 
   // Persist and commit immediately - flushSync() is what makes the value
-  // visible to the other process.
+  // visible to the other process. openFresh() also guarantees we write on top
+  // of what is currently on disk, never on top of a stale in-memory copy.
   static save(ctx: common.Context, snap: Ch43Snapshot): void {
     try {
-      let store: preferences.Preferences = preferences.getPreferencesSync(ctx, Ch43CardStore.options())
+      let store: preferences.Preferences = Ch43CardStore.openFresh(ctx)
       store.putSync(CH43_KEY_DONE, snap.done)
       store.putSync(CH43_KEY_TARGET, snap.target)
       store.putSync(CH43_KEY_STREAK, snap.streak)
