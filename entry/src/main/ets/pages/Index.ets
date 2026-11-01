@@ -241,6 +241,16 @@ struct Index {
       title: '第46篇：HUKS 密钥管理',
       desc: '密钥生成/使用/删除全走安全硬件 + AES-256-CBC 加解密实操',
       url: 'pages/ch46/Index'
+    },
+    {
+      title: '第47篇：状态管理 V2',
+      desc: 'V1 三大痛点复现 + @Local/@Param/@Once/@Event/@Monitor/@Computed/@Trace 全家桶',
+      url: 'pages/ch47/Index'
+    },
+    {
+      title: '第48篇：Sendable 跨线程对象',
+      desc: '普通对象拷贝 vs @Sendable 共享 + collections.Map + 拷贝耗时实测',
+      url: 'pages/ch48/Index'
     }
   ]
 

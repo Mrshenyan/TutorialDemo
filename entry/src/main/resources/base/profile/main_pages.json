@@ -175,6 +175,17 @@
     "pages/ch45/Ch45AppEvent",
     "pages/ch46/Index",
     "pages/ch46/Ch46KeyManage",
-    "pages/ch46/Ch46Crypto"
+    "pages/ch46/Ch46Crypto",
+    "pages/ch47/Index",
+    "pages/ch47/Ch47Pain",
+    "pages/ch47/Ch47Trace",
+    "pages/ch47/Ch47ParamEvent",
+    "pages/ch47/Ch47MonitorComputed",
+    "pages/ch47/Ch47ProviderConsumer",
+    "pages/ch48/Index",
+    "pages/ch48/Ch48Clone",
+    "pages/ch48/Ch48Share",
+    "pages/ch48/Ch48Collections",
+    "pages/ch48/Ch48Perf"
   ]
 }
