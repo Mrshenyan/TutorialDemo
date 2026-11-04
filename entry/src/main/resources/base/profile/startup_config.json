@@ -1,0 +1,33 @@
+{
+  "startupTasks": [
+    {
+      "name": "Ch50TaskConfig",
+      "srcEntry": "./ets/startup/Ch50TaskConfig.ets",
+      "dependencies": [],
+      "runOnThread": "mainThread",
+      "waitOnMainThread": true
+    },
+    {
+      "name": "Ch50TaskCache",
+      "srcEntry": "./ets/startup/Ch50TaskCache.ets",
+      "dependencies": ["Ch50TaskConfig"],
+      "runOnThread": "taskPool",
+      "waitOnMainThread": false
+    },
+    {
+      "name": "Ch50TaskFeed",
+      "srcEntry": "./ets/startup/Ch50TaskFeed.ets",
+      "dependencies": ["Ch50TaskConfig"],
+      "runOnThread": "taskPool",
+      "waitOnMainThread": false
+    },
+    {
+      "name": "Ch50TaskReport",
+      "srcEntry": "./ets/startup/Ch50TaskReport.ets",
+      "excludeFromAutoStart": true,
+      "runOnThread": "taskPool",
+      "waitOnMainThread": false
+    }
+  ],
+  "configEntry": "./ets/startup/Ch50StartupConfig.ets"
+}

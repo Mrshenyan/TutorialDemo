@@ -1,4 +1,5 @@
 import { router } from '@kit.ArkUI'
+import { Ch50Trace } from './ch50data/Ch50Trace'
 
 // All tutorial chapters. Append a new entry here whenever a chapter sub-package is added.
 interface Chapter {
@@ -251,8 +252,26 @@ struct Index {
       title: '第48篇：Sendable 跨线程对象',
       desc: '普通对象拷贝 vs @Sendable 共享 + collections.Map + 拷贝耗时实测',
       url: 'pages/ch48/Index'
+    },
+    {
+      title: '第49篇：长列表性能与组件复用',
+      desc: '300 条列表构造次数实测 + @Reusable 状态残留 + 增删时的 key 规矩',
+      url: 'pages/ch49/Index'
+    },
+    {
+      title: '第50篇：应用启动优化 AppStartup',
+      desc: 'startup_config 依赖调度 + 六个启动时间点实测 + 主线程阻塞的代价',
+      url: 'pages/ch50/Index'
     }
   ]
+
+  aboutToAppear(): void {
+    // ch50: the first frame of the whole app. Only the very first call counts —
+    // coming back here from a sub-page must not overwrite the cold-start number.
+    if (Ch50Trace.tPageAppear === 0) {
+      Ch50Trace.tPageAppear = Date.now()
+    }
+  }
 
   build() {
     Column() {

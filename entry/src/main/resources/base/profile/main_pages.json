@@ -186,6 +186,16 @@
     "pages/ch48/Ch48Clone",
     "pages/ch48/Ch48Share",
     "pages/ch48/Ch48Collections",
-    "pages/ch48/Ch48Perf"
+    "pages/ch48/Ch48Perf",
+    "pages/ch49/Index",
+    "pages/ch49/Ch49Baseline",
+    "pages/ch49/Ch49Reuse",
+    "pages/ch49/Ch49Pitfall",
+    "pages/ch49/Ch49Tuning",
+    "pages/ch50/Index",
+    "pages/ch50/Ch50Overview",
+    "pages/ch50/Ch50Timeline",
+    "pages/ch50/Ch50Manual",
+    "pages/ch50/Ch50Perf"
   ]
 }

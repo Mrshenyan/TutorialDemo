@@ -9,6 +9,8 @@
     ],
     "deliveryWithInstall": true,
     "installationFree": false,
+    "srcEntry": "./ets/ch50stage/Ch50AbilityStage.ets",
+    "appStartup": "$profile:startup_config",
     "pages": "$profile:main_pages",
     "requestPermissions": [
       {

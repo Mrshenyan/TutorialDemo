@@ -2,6 +2,7 @@ import { AbilityConstant, Configuration, ConfigurationConstant, UIAbility, Want 
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { uiAppearance, window } from '@kit.ArkUI';
 import resourceManager from '@ohos.resourceManager';
+import { Ch50Trace } from '../pages/ch50data/Ch50Trace';
 
 const DOMAIN = 0x0000;
 
@@ -14,6 +15,8 @@ export default class EntryAbility extends UIAbility {
   private mainWindowStage?: window.WindowStage;
 
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    // ch50: milestone for the startup timeline (main thread, before any window).
+    Ch50Trace.tAbilityCreate = Date.now();
     this.launchWant = want;
     try {
       this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
@@ -52,6 +55,9 @@ export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage): void {
     // Main window is created, set main page for this ability
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
+    // ch50: the content is not loaded yet — this is the last milestone before a
+    // frame can be produced.
+    Ch50Trace.tWindowStage = Date.now();
 
     // ① Sync system config once at startup so the first page already shows the real mode/scale.
     this.syncSystemConfig();
