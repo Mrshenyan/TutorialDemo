@@ -262,6 +262,11 @@ struct Index {
       title: '第50篇：应用启动优化 AppStartup',
       desc: 'startup_config 依赖调度 + 六个启动时间点实测 + 主线程阻塞的代价',
       url: 'pages/ch50/Index'
+    },
+    {
+      title: '第51篇：转场动画进阶',
+      desc: 'geometryTransition 一镜到底 + bindContentCover 自定义模态 + motionPath + @AnimatableExtend',
+      url: 'pages/ch51/Index'
     }
   ]
 

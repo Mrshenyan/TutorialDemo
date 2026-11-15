@@ -196,6 +196,11 @@
     "pages/ch50/Ch50Overview",
     "pages/ch50/Ch50Timeline",
     "pages/ch50/Ch50Manual",
-    "pages/ch50/Ch50Perf"
+    "pages/ch50/Ch50Perf",
+    "pages/ch51/Index",
+    "pages/ch51/Ch51Geometry",
+    "pages/ch51/Ch51Modal",
+    "pages/ch51/Ch51MotionPath",
+    "pages/ch51/Ch51AnimExtend"
   ]
 }
